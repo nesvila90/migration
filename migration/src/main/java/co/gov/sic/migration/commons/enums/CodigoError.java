@@ -1,0 +1,12 @@
+package co.gov.sic.migration.commons.enums;
+
+public enum CodigoError {
+
+	PERSISTENCE_EXCEPTION,
+	BUSINESS_EXCEPTION,
+	PARAMETERS_REQUIRED_EMPTY,
+	INDEX_OUT_OF_BOUNDS_EXCEPTION,
+	FAIL_CONNECTION,
+	GENERAL_EXCEPTION,
+
+}

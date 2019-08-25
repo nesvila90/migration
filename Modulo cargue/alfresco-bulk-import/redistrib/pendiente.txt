@@ -1,0 +1,2 @@
+quitar dependencias en pom de librerias que entran en conflicto con Alfresco.
+quitar dependencias de tomcat

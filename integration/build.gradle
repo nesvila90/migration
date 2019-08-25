@@ -1,0 +1,55 @@
+buildscript {
+    ext {
+        lombokVersion = '1.16.20'
+    }
+    repositories {
+        mavenCentral()
+    }
+}
+apply plugin: 'base'
+apply plugin: 'java'
+apply plugin: 'war'
+war.archiveName 'sic-migration-integration.war'
+
+
+group = 'co.gov.sic'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    //jcenter()
+}
+
+ext {
+    SPRING_VERSION = "5.1.3.RELEASE"
+    JACKSON_VERSION = "2.9.3"
+    LOMBOK = "1.16.18"
+    LOG4J2 = "2.10.0"
+    SERVER_HOME = System.getenv('WL_DOMAIN_HOME')
+    JWT_VERSION     = "3.3.0"
+    SPRING_LDAP_VERSION = "2.1.0.RELEASE"
+    SPRING_SECURITY_VERSION = "4.2.3.RELEASE"
+    JOLLYDAY_API = "0.5.4"
+    JSTL_VERSION ="1.2"
+    MAIL_VERSION ="1.4.7"
+
+
+}
+
+
+dependencies {
+    implementation('org.springframework:spring-core:5.+')
+    implementation('org.springframework:spring-beans:5.+')
+    implementation('org.springframework:spring-context:5.+')
+    implementation('org.springframework:spring-web:5.+')
+    implementation('org.springframework:spring-webmvc:5.+')
+    //compileOnly('org.projectlombok:lombok')
+    //annotationProcessor('org.projectlombok:lombok')
+
+    implementation('com.fasterxml.jackson.core:jackson-databind:2.9.+')
+    runtimeOnly('org.apache.logging.log4j:log4j-api:2.+')
+    runtimeOnly('org.apache.logging.log4j:log4j-core:2+')
+
+
+}

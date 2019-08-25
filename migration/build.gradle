@@ -1,0 +1,57 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.1.RELEASE'
+        lombokVersion = '1.16.20'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+apply plugin: 'war'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+war.archiveName 'sic-migration.war'
+
+group = 'co.gov.sic'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+/*
+configurations {
+    compile.exclude module: 'spring-boot-starter-tomcat'
+}
+*/
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('org.springframework.boot:spring-boot-starter-security')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    runtimeOnly('org.springframework.boot:spring-boot-devtools')
+    runtimeOnly('org.postgresql:postgresql')
+    testImplementation('org.springframework.boot:spring-boot-starter-tomcat')
+  //  compileOnly('javax.servlet:servlet-api:2.5')
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+    annotationProcessor('org.projectlombok:lombok')
+    compileOnly('org.projectlombok:lombok')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.restdocs:spring-restdocs-mockmvc')
+    testImplementation('org.springframework.security:spring-security-test')
+
+    implementation('org.apache.chemistry.opencmis:chemistry-opencmis-client-impl:1.1.0')
+
+//    compile group: 'org.apache.chemistry.opencmis', name: 'chemistry-opencmis-client-impl', version: '1.1.0'
+   // providedRuntime('org.springframework.boot:spring-boot-starter-undertow')
+ //   providedCompile('javax.servlet:javax.servlet-api')
+    compile group: 'com.jcraft', name: 'jsch', version: '0.1.53'
+
+
+
+
+}
